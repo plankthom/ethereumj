@@ -534,7 +534,7 @@ public class BlockchainImpl implements Blockchain, org.ethereum.facade.Blockchai
             }
             BlockSummary summary1 = addImpl(repo.getSnapshotTo(getBestBlock().getStateRoot()), block);
             stateLogger.warn("Second import trial " + (summary1 == null ? "FAILED" : "OK"));
-            if (summary1 != null) {
+            if (summary1 == null) {
                 if (config.exitOnBlockConflict()) {
                     stateLogger.error("Inconsistent behavior, exiting...");
                     System.exit(-1);
